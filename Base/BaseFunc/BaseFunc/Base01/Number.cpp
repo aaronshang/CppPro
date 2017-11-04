@@ -27,3 +27,6 @@ void CNumber::test()
 	cout << "floor" << k << endl;
 	cout << "round" << round(i) << endl;
 }
+
+
+
