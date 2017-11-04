@@ -7,5 +7,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Base01\Number.cpp">
+      <Filter>Base01</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Base01\Number.h">
+      <Filter>Base01</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -11,7 +11,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Base01\Number.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Base01\Number.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E9CFF80A-2098-4581-91D2-3C29BC9B43B1}</ProjectGuid>
