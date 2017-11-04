@@ -9,6 +9,7 @@ public:
 
 public:
 	void test();
+	double round(double r);
 };
 
 
