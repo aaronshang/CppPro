@@ -136,25 +136,60 @@ public:
 	}
 };
 
+int ReplaceString(string &str, const string &oldSubStr, const string newSubStr, int AllReplace)
+{
+	int ReplaceItems = 0;
+	const size_t nsize = newSubStr.size();
+	const size_t psize = oldSubStr.size();
+
+	for (std::string::size_type pos = str.find(oldSubStr, 0);
+		pos != std::string::npos;
+		pos = str.find(oldSubStr, pos + nsize))
+	{
+		str.replace(pos, psize, newSubStr);
+		ReplaceItems++;
+
+		if (!AllReplace)
+			break;
+	}
+
+	return ReplaceItems;
+}
+
 
 int main(){
 
 	cout << "hello" << endl;
 
+	string oldstr = "^CELLSIG:\r\nRSRP: -116.000000\r\nRSRQ : -7.000000\r\nRSSI : -106.000000\r\nSINR : -1.000000\r\nOK";
+	cout << oldstr.c_str() << endl;
+
+	ReplaceString(oldstr, "^CELLSIG:", "", 1);
+	ReplaceString(oldstr, " ", "", 1);
+	ReplaceString(oldstr, "\r\n", " ", 1);
+	ReplaceString(oldstr, "00000", "", 1);
+	ReplaceString(oldstr, "OK", "", 1);
+	cout << oldstr.c_str() << endl;
+
 	//CNumber *number = new CNumber();
 	//number->test();
 	//delete number;
 
-	vector<int> numVec;
-	numVec.push_back(-1);
-	numVec.push_back(0);
-	numVec.push_back(1);
-	numVec.push_back(2);
-	numVec.push_back(-1);
-	numVec.push_back(-4);
+	//vector<int> numVec;
+	//numVec.push_back(-1);
+	//numVec.push_back(0);
+	//numVec.push_back(1);
+	//numVec.push_back(2);
+	//numVec.push_back(-1);
+	//numVec.push_back(-4);
 
-	Solution *ss = new Solution();
-	ss->threeSum2(numVec);
+	//Solution *ss = new Solution();
+	//ss->threeSum2(numVec);
+
+	//string dstr = "a";
+	//dstr += '\r';
+	//dstr += '\n';
+	//cout << "length" << dstr.length() << endl;
 
 	return 0;
 
