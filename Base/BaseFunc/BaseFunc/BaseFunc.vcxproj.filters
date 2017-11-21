@@ -4,16 +4,31 @@
     <Filter Include="Base01">
       <UniqueIdentifier>{079060d8-c1a7-4691-aaac-fb0cf7280888}</UniqueIdentifier>
     </Filter>
+    <Filter Include="cjson">
+      <UniqueIdentifier>{bd97925f-50fe-45d7-8f48-c386ae8d4790}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Base01\Number.cpp">
       <Filter>Base01</Filter>
     </ClCompile>
+    <ClCompile Include="cjson\cJSON.cpp">
+      <Filter>cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="cjson\cjsonTest.cpp">
+      <Filter>cjson</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Base01\Number.h">
       <Filter>Base01</Filter>
+    </ClInclude>
+    <ClInclude Include="cjson\cJSON.h">
+      <Filter>cjson</Filter>
+    </ClInclude>
+    <ClInclude Include="cjson\cjsonTest.h">
+      <Filter>cjson</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
