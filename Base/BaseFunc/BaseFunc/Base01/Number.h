@@ -10,6 +10,7 @@ public:
 public:
 	void test();
 	double round(double r);
+	int GetINT(long long guid, int port);
 };
 
 

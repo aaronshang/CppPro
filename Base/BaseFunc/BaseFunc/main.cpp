@@ -9,7 +9,18 @@ int main(){
 
 	cout << "hello" << endl;
 
-	testJson();
+	//testJson();
+
+	long long guid = 223499391602595000;
+	int port = 3;
+
+	CNumber *numObj = new CNumber();
+	int num = numObj->GetINT(guid, port);
+	cout << num << endl;
+	delete numObj;
+
+	int bigNum = (int(pow((double)2, (double)16)));
+	cout << bigNum << endl;
 
 	return 0;
 

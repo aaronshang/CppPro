@@ -1,6 +1,7 @@
 #include "Number.h"
 #include <math.h>
 #include <iostream>
+#include <string>
 using namespace std;
 
 CNumber::CNumber()
@@ -28,5 +29,19 @@ void CNumber::test()
 	cout << "round" << round(i) << endl;
 }
 
-
+int CNumber::GetINT(long long guid, int port)
+{
+	char temp[32] = { 0 };
+	sprintf(temp, "%lld", guid);
+	string guidStr = temp;
+	string halfStr = "";
+	for (int i = 0; i < guidStr.length(); i++)
+	{
+		if (i % 2 == 1)
+		{
+			halfStr.append(guidStr.substr(i, 1));
+		}
+	}
+	return 0;
+}
 
