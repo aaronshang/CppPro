@@ -20,3 +20,34 @@ void testJson()
 	long long num = time->valueLongLong;
 	cJSON_Delete(root);
 }
+
+string GetJsonTransGPS(string gpsJson)
+{
+	string rvt = "";
+	cJSON * pJsonRoot = NULL;
+	pJsonRoot = cJSON_CreateObject();
+	if (NULL == pJsonRoot)
+	{
+		return rvt;
+	}
+	cJSON_AddStringToObject(pJsonRoot, "UB_CMD", "Transmit");
+	cJSON_AddStringToObject(pJsonRoot, "CMD", "TransGPS");
+
+	cJSON * pSubJson = NULL;
+	pSubJson = cJSON_CreateObject();
+	if (NULL == pSubJson)
+	{
+		cJSON_Delete(pJsonRoot);
+		return rvt;
+	}
+	cJSON_AddNumberToObject(pSubJson, "From", 0);
+	cJSON_AddNumberToObject(pSubJson, "To", 100);
+	cJSON_AddStringToObject(pSubJson, "Msg", gpsJson.c_str());
+	cJSON_AddItemToObject(pJsonRoot, "Param", pSubJson);
+
+	char *str = cJSON_Print(pJsonRoot);
+	rvt = str;
+	cJSON_Delete(pJsonRoot);
+
+	return rvt;
+}
