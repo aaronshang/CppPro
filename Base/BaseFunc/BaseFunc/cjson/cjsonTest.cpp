@@ -10,19 +10,30 @@ void testJson()
 
 	cJSON *root = cJSON_CreateObject();
 	//cJSON_AddItemToObject(root, "UTCTime", cJSON_CreateLongLong(12345));
-	//cJSON_AddItemToObject(root, "UTCTime", cJSON_CreateLongLong(123456789012345678));
-	cJSON_AddItemToObject(root, "UTCTime", cJSON_CreateNumber(12345));
+	cJSON_AddItemToObject(root, "UTCTime", cJSON_CreateLongLong(123456789012345678));
+	//cJSON_AddItemToObject(root, "UTCTime", cJSON_CreateNumber(12345));
 
 	char *out = cJSON_Print(root);
 
 	cJSON *parseRoot = cJSON_Parse(out);
 	cJSON *time = cJSON_GetObjectItem(parseRoot, "UTCTime");
 	long long num = time->valueLongLong;
+
+	string str = out;
+	free(out);
+	cout << "aim"<<str << endl;
+
 	cJSON_Delete(root);
 }
 
-string GetJsonTransGPS(string gpsJson)
+string GetJsonTransGPS(string gpsJson, bool flag)
 {
+	cJSON *addNode=NULL;
+	if (flag)
+	{
+		addNode = cJSON_Parse(gpsJson.c_str());
+	}
+
 	string rvt = "";
 	cJSON * pJsonRoot = NULL;
 	pJsonRoot = cJSON_CreateObject();
@@ -42,12 +53,24 @@ string GetJsonTransGPS(string gpsJson)
 	}
 	cJSON_AddNumberToObject(pSubJson, "From", 0);
 	cJSON_AddNumberToObject(pSubJson, "To", 100);
-	cJSON_AddStringToObject(pSubJson, "Msg", gpsJson.c_str());
+
+	if (flag)
+	{
+		cJSON_AddItemToObject(pSubJson, "Msg", addNode);
+	}
+
+	
 	cJSON_AddItemToObject(pJsonRoot, "Param", pSubJson);
 
 	char *str = cJSON_Print(pJsonRoot);
 	rvt = str;
 	cJSON_Delete(pJsonRoot);
-
 	return rvt;
+}
+
+void parseJson(string str){
+
+	cJSON *root = cJSON_Parse(str.c_str());
+	cout << "ed" << endl;
+	
 }

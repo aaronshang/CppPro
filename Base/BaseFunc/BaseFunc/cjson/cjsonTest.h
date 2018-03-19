@@ -5,6 +5,8 @@ using namespace std;
 
 void testJson();
 
-string GetJsonTransGPS(string gpsJson);
+void parseJson(string str);
+
+string GetJsonTransGPS(string gpsJson, bool flag);
 
 #endif
