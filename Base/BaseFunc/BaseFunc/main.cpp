@@ -9,6 +9,10 @@ int main(){
 
 	cout << "hello" << endl;
 
+	string str = "+ZSNT:2309,33";
+	string net = str.substr(str.find(':') + 1, str.find(',') - str.find(':') - 1);
+	cout << net << endl;
+
 	//testJson();
 
 	//long long guid = 223499391602595000;
@@ -22,11 +26,11 @@ int main(){
 	//int bigNum = (int(pow((double)2, (double)16)));
 	//cout << bigNum << endl;
 
-	string json1 = GetJsonTransGPS("ok", false);
-	string json2 = GetJsonTransGPS(json1, true);
-	cout << json2 << endl;
+	//string json1 = GetJsonTransGPS("ok", false);
+	//string json2 = GetJsonTransGPS(json1, true);
+	//cout << json2 << endl;
 
-	parseJson(json2);
+	//parseJson(json2);
 
 
 	//long long curtime = 123456789123;
